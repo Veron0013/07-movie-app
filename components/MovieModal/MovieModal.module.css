@@ -1,0 +1,142 @@
+.backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.7);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal {
+	position: relative;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+	background-color: #222;
+	width: 60vw;
+	height: 80vh;
+	min-width: 320px;
+	max-width: 800px;
+	min-height: 300px;
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.adult {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 60px;
+	background-color: transparent;
+}
+
+.content {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.85);
+	color: #fff;
+	padding: 20px;
+	overflow-y: auto;
+	max-height: 50%;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.content_wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+	justify-content: space-between;
+}
+
+.content_wrapper p {
+	max-width: 350px;
+}
+
+.movieData {
+	max-width: 300px;
+}
+
+.production_companies {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	text-decoration: none;
+	gap: 0.3em;
+}
+
+.production_companies li {
+	display: flex;
+	gap: 0.3em;
+	align-items: center;
+}
+
+.logo_path {
+	display: block;
+	max-width: 80px;
+	max-height: 40px;
+	background-color: #fff;
+}
+
+.content h2 {
+	margin: 0;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 1.2;
+	text-align: center;
+	padding-bottom: 0.5em;
+}
+
+.overview {
+	margin: 0;
+	font-size: 16px;
+	line-height: 1.4;
+	padding-bottom: 0.5em;
+}
+
+.content p {
+	margin: 0;
+	font-size: 16px;
+	line-height: 1.4;
+}
+
+.closeButton {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	background: rgba(255, 255, 255, 0.8);
+	border: none;
+	border-radius: 4px;
+	width: 40px;
+	height: 40px;
+	font-size: 24px;
+	font-weight: bold;
+	color: #333;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+}
+
+.closeButton:hover {
+	background: rgba(255, 255, 255, 1);
+}
+
+.closeButton:focus {
+	outline: 2px solid #007bff;
+}

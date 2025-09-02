@@ -1,0 +1,31 @@
+.scroller {
+	position: fixed;
+	user-select: none;
+	bottom: 40px;
+	right: 40px;
+	cursor: pointer;
+	/*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);*/
+	z-index: 1000;
+	transition: transform 0.3s ease, opacity 0.3s ease;
+	transform: scale(1);
+	opacity: 0.8;
+}
+
+.scroller:hover {
+	transform: scale(1.1);
+	opacity: 1;
+}
+
+.scroller img {
+	display: block;
+	margin: 0;
+	padding: 0;
+	border: none;
+	width: 60px;
+}
+
+@media (min-width: 1440px) {
+	.scroller {
+		right: calc(50% - 690px);
+	}
+}

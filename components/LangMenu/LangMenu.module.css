@@ -1,0 +1,47 @@
+.backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.3);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.menu__wrapper {
+	position: absolute;
+	top: 76px;
+	left: 50vw;
+	border: 1px solid #ccc;
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	z-index: 1000;
+}
+
+.menu__wrapper ul {
+	list-style: none;
+	width: 80px;
+	padding: 2px;
+	margin: 0;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #242424;
+}
+
+.menu__item {
+	user-select: none;
+	width: 100%;
+	transition: all 3ms ease-in;
+	text-align: center;
+
+	&:hover,
+	&:focus {
+		cursor: pointer;
+		background-color: rgba(255, 255, 255, 0.4);
+	}
+}
