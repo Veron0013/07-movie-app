@@ -1,8 +1,7 @@
-import { createPortal } from "react-dom"
 import { ScaleLoader } from "react-spinners"
 import css from "./Loader.module.css"
 import type { CSSProperties } from "react"
-import { useLanguage } from "../LanguageContext/LanguageContext"
+import { useLangStore } from "@/stores/langStore"
 
 export default function Loader() {
 	const override: CSSProperties = {
@@ -11,11 +10,11 @@ export default function Loader() {
 		borderColor: "#004182",
 	}
 
-	const { translationTexts } = useLanguage()
+	const { translationTexts } = useLangStore()
 
 	//console.log("load")
 
-	return createPortal(
+	return (
 		<div className={css.wrapper}>
 			<ScaleLoader
 				color="#004182"
@@ -26,7 +25,6 @@ export default function Loader() {
 				data-testid="loader"
 			/>
 			<span className={css.text}>{translationTexts.loader_text}</span>
-		</div>,
-		document.body
+		</div>
 	)
 }

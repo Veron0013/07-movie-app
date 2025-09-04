@@ -39,6 +39,15 @@ export const getMovieById = async (searchParams: SearchParams): Promise<Movie> =
 	return await getApiData(`${DETAILS_URL}${searchParams.movie_id}`, createQueryParams(searchParams))
 }
 
+export const getMovieByIdServer = async (id: string, language: string): Promise<Movie> => {
+	const qParams: SearchParams = {
+		movie_id: Number(id),
+		language,
+	}
+
+	return await getApiData(`${DETAILS_URL}${qParams.movie_id}`, createQueryParams(qParams))
+}
+
 export const isAdultGenre = (genreId: number[], isAdult: boolean): boolean => {
 	const isAdultGenre = genreId.some((id) => adultGenreIds.includes(id))
 	return isAdult || isAdultGenre

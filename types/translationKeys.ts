@@ -24,6 +24,9 @@ export interface TranslationKeys {
 	pagiPrev: string
 	yup_min_query: string
 	desc_year: string
+	footer_rights: string
+	footer_dev: string
+	footer_contact: string
 	sortOptions: {
 		"original_title.asc": string
 		"original_title.desc": string

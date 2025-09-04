@@ -1,26 +1,29 @@
+"use client"
+
 import { useState } from "react"
-import toastMessage, { MyToastType } from "../../services/messageService"
 import LangMenu from "../LangMenu/LangMenu"
-import { useLanguage } from "../LanguageContext/LanguageContext"
 import css from "./SearchBar.module.css"
-import type { LangType } from "../../types/translationKeys"
 import { createPortal } from "react-dom"
 import { ErrorMessage, Field, Form, Formik, type FormikHelpers } from "formik"
 import * as Yup from "yup"
+import toastMessage, { MyToastType } from "@/lib/messageService"
+import Link from "next/link"
+import { useLangStore } from "@/stores/langStore"
 
-interface SearchBarProps {
-	onSubmit: (query: string) => void
-	selectTrend: () => void
-}
+//interface SearchBarProps {
+//	onSubmit: (query: string) => void
+//	selectTrend: () => void
+//}
 
 interface FormValues {
 	query: string
 }
 
-export default function SearchBar({ selectTrend, onSubmit }: SearchBarProps) {
-	const { translationTexts, setLanguage } = useLanguage()
+//export default function SearchBar({ selectTrend, onSubmit }: SearchBarProps) {
+export default function SearchBar() {
+	const { translationTexts } = useLangStore()
 
-	const [isMenulOpen, setIsMenulOpen] = useState(false)
+	const [isMenuOpen, setIsMenulOpen] = useState(false)
 	const [modalPos, setModalPos] = useState<{ top: number; left: number }>({ top: 0, left: 0 })
 
 	const initialFormValues: FormValues = {
@@ -38,13 +41,14 @@ export default function SearchBar({ selectTrend, onSubmit }: SearchBarProps) {
 			toastMessage(MyToastType.loading, translationTexts.toast_no_request)
 			return
 		}
-		onSubmit(queryData)
+		console.log(queryData)
+		//onSubmit(queryData)
 	}
 
-	function handleShowMenu(langValue: LangType): void {
-		setIsMenulOpen(false)
-		setLanguage(langValue)
-	}
+	//function handleShowMenu(langValue: LangType): void {
+	//	setIsMenulOpen(false)
+	//	//setLanguage(langValue)
+	//}
 
 	const handleMenu = (e: React.MouseEvent<HTMLElement>): void => {
 		const rect = e.currentTarget.getBoundingClientRect()
@@ -56,7 +60,7 @@ export default function SearchBar({ selectTrend, onSubmit }: SearchBarProps) {
 	}
 
 	const handleTranding = () => {
-		selectTrend()
+		console.log("trend")
 	}
 
 	const handleCloseMenu = () => {
@@ -66,9 +70,9 @@ export default function SearchBar({ selectTrend, onSubmit }: SearchBarProps) {
 	return (
 		<header className={css.header}>
 			<div className={css.container}>
-				<a className={css.link} href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">
+				<Link className={css.link} href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">
 					{`${translationTexts.searchBar_poweredBy} TMDB`}
-				</a>
+				</Link>
 				<div className={css.container__data}>
 					<p className={css.lang} onClick={handleTranding}>
 						{translationTexts.searchBar_Trend}
@@ -76,11 +80,7 @@ export default function SearchBar({ selectTrend, onSubmit }: SearchBarProps) {
 					<p className={css.lang} onClick={handleMenu}>
 						{translationTexts.searchBar_lang}
 					</p>
-					{isMenulOpen &&
-						createPortal(
-							<LangMenu onClose={handleCloseMenu} onSelect={handleShowMenu} position={modalPos} />,
-							document.body
-						)}
+					{isMenuOpen && createPortal(<LangMenu onClose={handleCloseMenu} position={modalPos} />, document.body)}
 					<Formik initialValues={initialFormValues} validationSchema={OrderSchema} onSubmit={handleSubmit}>
 						<Form className={css.form}>
 							<div className={css.wrapper}>

@@ -27,6 +27,9 @@ export const translations: Record<"uk-UA" | "en-US", TranslationKeys> = {
 		pagiNext: "наступна >",
 		pagiPrev: "< попередня",
 		yup_min_query: "Замало: мінімум 2 символи",
+		footer_rights: "Всі права захищено",
+		footer_dev: "Розробник",
+		footer_contact: "Зв'язатися з нами",
 		sortOptions: {
 			"original_title.asc": "Назва (А–Я)",
 			"original_title.desc": "Назва (Я–А)",
@@ -70,6 +73,9 @@ export const translations: Record<"uk-UA" | "en-US", TranslationKeys> = {
 		pagiNext: "next >",
 		pagiPrev: "< previous",
 		yup_min_query: "Too short, minimum 2 characters",
+		footer_rights: "All rights reserved",
+		footer_dev: "Developer",
+		footer_contact: "Contact us",
 
 		sortOptions: {
 			"original_title.asc": "Original Title (A–Z)",

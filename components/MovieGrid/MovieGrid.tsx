@@ -1,8 +1,11 @@
-import { isAdultGenre } from "../../services/movieService"
-import { type Movie } from "../../types/movie"
-import { ADULT_ALERT, NO_IMAGE, PIC_URL } from "../../services/vars"
+import { Movie } from "@/types/movie"
 import css from "./MovieGrid.module.css"
-import { useLanguage } from "../LanguageContext/LanguageContext"
+import { isAdultGenre } from "@/lib/movieService"
+import { ADULT_ALERT, NO_IMAGE, PIC_URL } from "@/lib/vars"
+import Link from "next/link"
+import Image from "next/image"
+import { useParams } from "next/navigation"
+import { useLangStore } from "@/stores/langStore"
 
 interface MovieGridProps {
 	onSelect: (movieId: number) => void
@@ -10,7 +13,9 @@ interface MovieGridProps {
 }
 
 export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
-	const { translationTexts } = useLanguage()
+	const { translationTexts } = useLangStore()
+
+	const { lang } = useParams<{ lang: string }>()
 
 	const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
 		const movie_id: number = Number(e.currentTarget.id)
@@ -34,15 +39,33 @@ export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
 							onClick={handleClick}
 							style={{ animationDelay: `${index * 100}ms` }}
 						>
-							<div className={css.card}>
-								<img className={css.image} src={picSource} alt={item.title} loading="lazy" />
-								<h2 className={css.title}>
-									{item.title}
-									<p className={css.year_description}>{releaseYear}</p>
-								</h2>
-								{showAdultBadge && <img className={css.adult} src={ADULT_ALERT} alt="18+ Alert" loading="lazy" />}
-								{hasRating && <div className={css.rating}>{item.vote_average?.toFixed(2)}</div>}
-							</div>
+							<Link href={`/${lang}/movie/${item.id}`}>
+								<div className={css.card}>
+									<Image
+										className={css.image}
+										src={picSource}
+										alt={item.title}
+										loading="lazy"
+										width={640}
+										height={480}
+									/>
+									<h2 className={css.title}>
+										{item.title}
+										<p className={css.year_description}>{releaseYear}</p>
+									</h2>
+									{showAdultBadge && (
+										<Image
+											className={css.adult}
+											src={ADULT_ALERT}
+											alt="18+ Alert"
+											loading="lazy"
+											width={40}
+											height={40}
+										/>
+									)}
+									{hasRating && <div className={css.rating}>{item.vote_average?.toFixed(2)}</div>}
+								</div>
+							</Link>
 						</li>
 					)
 				})}

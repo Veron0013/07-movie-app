@@ -1,0 +1,30 @@
+import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query"
+import { getTrandingMovies, SearchParams } from "@/lib/movieService"
+import HomeClient from "./pageClient"
+
+type Props = {
+	params: Promise<{ lang: string }>
+}
+
+const HomePage = async ({ params }: Props) => {
+	const { lang } = await params
+
+	const queryClient = new QueryClient()
+
+	const qParam: SearchParams = {
+		language: lang,
+	}
+
+	await queryClient.prefetchQuery({
+		queryKey: ["Tranding", lang],
+		queryFn: () => getTrandingMovies(qParam),
+	})
+
+	return (
+		<HydrationBoundary state={dehydrate(queryClient)}>
+			<HomeClient />
+		</HydrationBoundary>
+	)
+}
+
+export default HomePage

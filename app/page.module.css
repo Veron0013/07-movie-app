@@ -10,7 +10,7 @@
   grid-template-rows: 20px 1fr 20px;
   align-items: center;
   justify-items: center;
-  min-height: 100svh;
+  /*min-height: 100svh;*/
   padding: 80px;
   gap: 64px;
   font-family: var(--font-geist-sans);
@@ -27,14 +27,14 @@
   }
 }
 
-.main {
+.mainPage {
   display: flex;
   flex-direction: column;
   gap: 32px;
   grid-row-start: 2;
 }
 
-.main ol {
+.mainPage ol {
   font-family: var(--font-geist-mono);
   padding-left: 0;
   margin: 0;
@@ -44,11 +44,11 @@
   list-style-position: inside;
 }
 
-.main li:not(:last-of-type) {
+.mainPage li:not(:last-of-type) {
   margin-bottom: 8px;
 }
 
-.main code {
+.mainPage code {
   font-family: inherit;
   background: var(--gray-alpha-100);
   padding: 2px 4px;
@@ -131,11 +131,11 @@ a.secondary {
     padding-bottom: 80px;
   }
 
-  .main {
+  .mainPage {
     align-items: center;
   }
 
-  .main ol {
+  .mainPage ol {
     text-align: center;
   }
 

@@ -1,33 +1,37 @@
-import { createContext, useContext } from "react"
-import { translations } from "../../services/translation"
-import type { LangType, TranslationKeys } from "../../types/translationKeys"
-import { useLocalStorage } from "@uidotdev/usehooks"
+//"use client"
 
-type LangContextType = {
-	language: string
-	setLanguage: (lang: LangType) => void
-	translationTexts: TranslationKeys
-}
+//import { createContext, useContext } from "react"
+//import type { LangType, TranslationKeys } from "../../types/translationKeys"
+//import { useLocalStorage } from "usehooks-ts"
+//import { useLangStore } from "@/stores/langStore"
 
-const LanguageContext = createContext<LangContextType | undefined>(undefined)
+//type LangContextType = {
+//	language: string
+//	setLanguage: (lang: LangType) => void
+//	translationTexts: TranslationKeys
+//}
 
-export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
-	const [language, setLanguage] = useLocalStorage<LangType>("sysLang", "en-US")
+//const LanguageContext = createContext<LangContextType | undefined>(undefined)
 
-	//const changeLanguage = (lang: LangType) => {
-	//	setStorageLang(lang)
-	//}
+//export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
+//	const [language, setLanguage] = useLocalStorage<LangType>("sysLang", "en-US")
 
-	//const [language, setLanguage] = useState<LangType>(sysLang || "en-US")
-	const translationTexts = translations[language]
-	return (
-		<LanguageContext.Provider value={{ language, setLanguage, translationTexts }}>{children}</LanguageContext.Provider>
-	)
-}
+//	const { translationTexts } = useLangStore()
 
-export const useLanguage = () => {
-	const context = useContext(LanguageContext)
-	//console.log(context)
-	if (!context) throw new Error("useLanguage must be used within LanguageProvider")
-	return context
-}
+//	//const changeLanguage = (lang: LangType) => {
+//	//	setStorageLang(lang)
+//	//}
+
+//	//const [language, setLanguage] = useState<LangType>(sysLang || "en-US")
+//	//const translationTexts = translations[lang as LangType]
+//	return (
+//		<LanguageContext.Provider value={{ language, setLanguage, translationTexts }}>{children}</LanguageContext.Provider>
+//	)
+//}
+
+//export const useLanguage = () => {
+//	const context = useContext(LanguageContext)
+//	//console.log(context)
+//	if (!context) throw new Error("useLanguage must be used within LanguageProvider")
+//	return context
+//}
