@@ -5,7 +5,7 @@ import { ADULT_ALERT, NO_IMAGE, PIC_URL } from "@/lib/vars"
 import Link from "next/link"
 import Image from "next/image"
 import { useParams } from "next/navigation"
-import { useLangStore } from "@/stores/langStore"
+//import { useLangStore } from "@/stores/langStore"
 import MovieRating from "./MovieRating"
 
 interface MovieGridProps {
@@ -14,7 +14,7 @@ interface MovieGridProps {
 }
 
 export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
-	const { translationTexts } = useLangStore()
+	//const { translationTexts } = useLangStore()
 
 	const { lang } = useParams<{ lang: string }>()
 
