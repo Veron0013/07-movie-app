@@ -1,7 +1,7 @@
 "use client"
 import { keepPreviousData, useQuery } from "@tanstack/react-query"
-import { useParams } from "next/navigation"
-import { getTrandingMovies, SearchParams } from "@/lib/movieService"
+import { useParams, useRouter, useSearchParams } from "next/navigation"
+import { getMovies, SearchParams } from "@/lib/movieService"
 import { useEffect, useState } from "react"
 import { SCROLL_THRESHOLD } from "@/lib/vars"
 import toastMessage, { MyToastType } from "@/lib/messageService"
@@ -11,8 +11,11 @@ import ScrollUp from "@/components/ScrollUp/ScrollUp"
 import Pagination from "@/components/Pagination/Pagination"
 import { useLangStore } from "@/stores/langStore"
 
-const HomeClient = () => {
+const SearchClient = () => {
 	const { lang } = useParams<{ lang: string }>()
+	const searchParams = useSearchParams()
+
+	const router = useRouter()
 
 	const [currentPage, setCurrentPage] = useState<number>(1)
 
@@ -20,7 +23,10 @@ const HomeClient = () => {
 
 	const { translationTexts } = useLangStore()
 
+	const query = searchParams.get("query") || ""
+
 	const qParam: SearchParams = {
+		query,
 		language: lang,
 		page: currentPage,
 	}
@@ -30,19 +36,11 @@ const HomeClient = () => {
 		//isLoading,
 		//error,
 	} = useQuery({
-		queryKey: ["Tranding", lang, currentPage],
-		queryFn: () => fetchQueryData(),
+		queryKey: ["Search", lang, query, currentPage],
+		queryFn: () => getMovies(qParam),
 		placeholderData: keepPreviousData,
 		refetchOnMount: false,
 	})
-
-	const fetchQueryData = async () => {
-		const res = await getTrandingMovies(qParam)
-		if (!res.results.length) {
-			toastMessage(MyToastType.error, translationTexts.toast_bad_request)
-		}
-		return res
-	}
 
 	const total_pages: number = data?.total_pages || 0
 
@@ -70,6 +68,15 @@ const HomeClient = () => {
 		}
 	}, [])
 
+	useEffect(() => {
+		if (total_pages === 0) {
+			toastMessage(MyToastType.error, translationTexts.toast_bad_request)
+			setTimeout(() => {
+				router.push(`/${lang}`)
+			}, 2000)
+		}
+	}, [total_pages])
+
 	return (
 		<>
 			<Toaster />
@@ -88,4 +95,4 @@ const HomeClient = () => {
 	)
 }
 
-export default HomeClient
+export default SearchClient

@@ -16,6 +16,7 @@
     "formik": "^2.4.6",
     "next": "15.5.2",
     "react": "19.1.0",
+    "react-circular-progressbar": "^2.2.0",
     "react-dom": "19.1.0",
     "react-hot-toast": "^2.6.0",
     "react-paginate": "^8.3.0",

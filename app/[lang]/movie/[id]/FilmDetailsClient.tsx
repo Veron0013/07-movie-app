@@ -81,8 +81,8 @@ const FilmDetailsClient = () => {
 										alt={movie.original_language || "original language"}
 										title={movie.original_language}
 										src={`${FLAG_URL}${originalLanguage}.svg`}
-										width={20}
-										height={30}
+										width={30}
+										height={20}
 									/>
 								</p>
 								<p>
@@ -122,8 +122,8 @@ const FilmDetailsClient = () => {
 												<Image
 													alt={el.origin_country}
 													src={`${FLAG_URL}${el.origin_country}.svg`}
-													width={20}
-													height={30}
+													width={30}
+													height={20}
 												/>
 											</li>
 										))}

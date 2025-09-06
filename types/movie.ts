@@ -56,3 +56,23 @@ export enum SortOption {
 	VOTE_COUNT_ASC = "vote_count.asc",
 	VOTE_COUNT_DESC = "vote_count.desc",
 }
+
+export interface Cast {
+	adult: boolean // Defaults to true
+	gender: number // integer, Defaults to 0
+	id: number // integer, Defaults to 0
+	known_for_department: string
+	name: string
+	original_name: string
+	popularity: number // Defaults to 0
+	profile_path: string
+	character: string
+	credit_id: string
+	order: number // integer, Defaults to 0
+}
+
+export interface CastData {
+	id: number
+	cast: Cast[]
+	crew: []
+}

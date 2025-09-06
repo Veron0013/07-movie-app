@@ -1,6 +1,7 @@
 import { QueryClient, HydrationBoundary, dehydrate } from "@tanstack/react-query"
 import FilmDetailsClient from "./FilmDetailsClient"
 import { getMovieByIdServer } from "@/lib/movieService"
+import { Metadata } from "next"
 
 type Props = {
 	params: Promise<{ lang: string; id: string }>
@@ -19,7 +20,7 @@ async function fetchMovie(id: string, lang: string, queryClient?: QueryClient) {
 	return movie
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const { id, lang } = await params
 	const movie = await fetchMovie(id, lang)
 

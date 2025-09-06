@@ -6,6 +6,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useParams } from "next/navigation"
 import { useLangStore } from "@/stores/langStore"
+import MovieRating from "./MovieRating"
 
 interface MovieGridProps {
 	onSelect: (movieId: number) => void
@@ -27,7 +28,7 @@ export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
 				{movies.map((item: Movie, index: number) => {
 					//console.log(item)
 					const showAdultBadge = item.genre_ids ? isAdultGenre(item.genre_ids, item.adult || false) : false
-					const hasRating: boolean = item.vote_average > 0 || false
+					const filmRating: number = item.vote_average > 0 ? item.vote_average * 10 : 0
 					const picSource: string = item.poster_path !== null ? `${PIC_URL}${item.poster_path}` : NO_IMAGE
 					const releaseYear: string =
 						item.release_date.length > 4 ? `${item.release_date.slice(0, 4)} ${translationTexts.desc_year}` : ``
@@ -59,11 +60,11 @@ export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
 											src={ADULT_ALERT}
 											alt="18+ Alert"
 											loading="lazy"
-											width={40}
-											height={40}
+											width={60}
+											height={60}
 										/>
 									)}
-									{hasRating && <div className={css.rating}>{item.vote_average?.toFixed(2)}</div>}
+									<MovieRating percentage={filmRating} />
 								</div>
 							</Link>
 						</li>

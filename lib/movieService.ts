@@ -1,6 +1,6 @@
 import axios from "axios"
-import { TRANDING_URL, DETAILS_URL, adultGenreIds } from "./vars"
-import { Movie } from "@/types/movie"
+import { TRANDING_URL, DETAILS_URL, adultGenreIds, SEARCH_URL } from "./vars"
+import { Cast, CastData, Movie } from "@/types/movie"
 
 export interface SearchParams {
 	include_adult?: boolean
@@ -27,8 +27,8 @@ interface ApiQueryParams {
 	params: SearchParams
 }
 
-export const getMovies = async (url: string, searchParams: SearchParams): Promise<ApiMovieData> => {
-	return await getApiData(url, createQueryParams(searchParams))
+export const getMovies = async (searchParams: SearchParams): Promise<ApiMovieData> => {
+	return await getApiData(SEARCH_URL, createQueryParams(searchParams))
 }
 
 export const getTrandingMovies = async (searchParams: SearchParams): Promise<ApiMovieData> => {
@@ -39,13 +39,21 @@ export const getMovieById = async (searchParams: SearchParams): Promise<Movie> =
 	return await getApiData(`${DETAILS_URL}${searchParams.movie_id}`, createQueryParams(searchParams))
 }
 
-export const getMovieByIdServer = async (id: string, language: string): Promise<Movie> => {
+export const getMovieByIdServer = async (id: string, language: string, subPath = ""): Promise<Movie> => {
 	const qParams: SearchParams = {
 		movie_id: Number(id),
 		language,
 	}
+	return await getApiData(`${DETAILS_URL}${qParams.movie_id}${subPath}`, createQueryParams(qParams))
+}
 
-	return await getApiData(`${DETAILS_URL}${qParams.movie_id}`, createQueryParams(qParams))
+export const getMovieByIdCast = async (id: string, language: string, subPath = ""): Promise<Cast[]> => {
+	const qParams: SearchParams = {
+		movie_id: Number(id),
+		language,
+	}
+	const response: CastData = await getApiData(`${DETAILS_URL}${qParams.movie_id}${subPath}`, createQueryParams(qParams))
+	return response.cast
 }
 
 export const isAdultGenre = (genreId: number[], isAdult: boolean): boolean => {

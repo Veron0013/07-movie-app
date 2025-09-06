@@ -13,6 +13,7 @@ const HomePage = async ({ params }: Props) => {
 
 	const qParam: SearchParams = {
 		language: lang,
+		page: 1,
 	}
 
 	await queryClient.prefetchQuery({

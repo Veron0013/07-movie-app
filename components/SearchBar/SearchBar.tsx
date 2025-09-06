@@ -9,6 +9,7 @@ import * as Yup from "yup"
 import toastMessage, { MyToastType } from "@/lib/messageService"
 import Link from "next/link"
 import { useLangStore } from "@/stores/langStore"
+import { useRouter } from "next/navigation"
 
 //interface SearchBarProps {
 //	onSubmit: (query: string) => void
@@ -21,7 +22,9 @@ interface FormValues {
 
 //export default function SearchBar({ selectTrend, onSubmit }: SearchBarProps) {
 export default function SearchBar() {
-	const { translationTexts } = useLangStore()
+	const { lang, translationTexts } = useLangStore()
+
+	const router = useRouter()
 
 	const [isMenuOpen, setIsMenulOpen] = useState(false)
 	const [modalPos, setModalPos] = useState<{ top: number; left: number }>({ top: 0, left: 0 })
@@ -42,7 +45,7 @@ export default function SearchBar() {
 			return
 		}
 		console.log(queryData)
-		//onSubmit(queryData)
+		router.push(`/${lang}/search?query=${queryData}`)
 	}
 
 	//function handleShowMenu(langValue: LangType): void {
@@ -60,7 +63,7 @@ export default function SearchBar() {
 	}
 
 	const handleTranding = () => {
-		console.log("trend")
+		router.push(`/${lang}`)
 	}
 
 	const handleCloseMenu = () => {
