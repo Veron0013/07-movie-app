@@ -19,7 +19,7 @@ export default function Credits() {
 	})
 
 	return (
-		<div>
+		<div className={css.grid__container}>
 			{cast && cast?.length > 1 && (
 				<ul className={css.grid}>
 					{cast.map((item) => {

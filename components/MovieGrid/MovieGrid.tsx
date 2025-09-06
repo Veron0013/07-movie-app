@@ -30,8 +30,9 @@ export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
 					const showAdultBadge = item.genre_ids ? isAdultGenre(item.genre_ids, item.adult || false) : false
 					const filmRating: number = item.vote_average > 0 ? item.vote_average * 10 : 0
 					const picSource: string = item.poster_path !== null ? `${PIC_URL}${item.poster_path}` : NO_IMAGE
-					const releaseYear: string =
-						item.release_date.length > 4 ? `${item.release_date.slice(0, 4)} ${translationTexts.desc_year}` : ``
+					//const releaseYear: string =
+					//	item.release_date.length > 4 ? `${item.release_date.slice(0, 4)} ${translationTexts.desc_year}` : ``
+					const releaseYear: string = item.release_date
 
 					return (
 						<li

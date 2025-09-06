@@ -1,27 +1,27 @@
 "use client"
 import { keepPreviousData, useQuery } from "@tanstack/react-query"
-import { useParams, useRouter, useSearchParams } from "next/navigation"
+import { useParams, useSearchParams } from "next/navigation"
 import { getMovies, SearchParams } from "@/lib/movieService"
 import { useEffect, useState } from "react"
 import { SCROLL_THRESHOLD } from "@/lib/vars"
-import toastMessage, { MyToastType } from "@/lib/messageService"
+//import toastMessage, { MyToastType } from "@/lib/messageService"
 import { Toaster } from "react-hot-toast"
 import MovieGrid from "@/components/MovieGrid/MovieGrid"
 import ScrollUp from "@/components/ScrollUp/ScrollUp"
 import Pagination from "@/components/Pagination/Pagination"
-import { useLangStore } from "@/stores/langStore"
+//import { useLangStore } from "@/stores/langStore"
 
 const SearchClient = () => {
 	const { lang } = useParams<{ lang: string }>()
 	const searchParams = useSearchParams()
 
-	const router = useRouter()
+	//const router = useRouter()
 
 	const [currentPage, setCurrentPage] = useState<number>(1)
 
 	const [isScrollUp, setScrollUp] = useState(false)
 
-	const { translationTexts } = useLangStore()
+	//const { translationTexts } = useLangStore()
 
 	const query = searchParams.get("query") || ""
 
@@ -68,14 +68,14 @@ const SearchClient = () => {
 		}
 	}, [])
 
-	useEffect(() => {
-		if (total_pages === 0) {
-			toastMessage(MyToastType.error, translationTexts.toast_bad_request)
-			setTimeout(() => {
-				router.push(`/${lang}`)
-			}, 2000)
-		}
-	}, [total_pages])
+	//useEffect(() => {
+	//	if (total_pages === 0) {
+	//		toastMessage(MyToastType.error, translationTexts.toast_bad_request)
+	//		setTimeout(() => {
+	//			router.push(`/${lang}`)
+	//		}, 2000)
+	//	}
+	//}, [total_pages])
 
 	return (
 		<>
