@@ -20,7 +20,7 @@ export default function Credits() {
 
 	return (
 		<div>
-			{cast?.length > 1 && (
+			{cast && cast?.length > 1 && (
 				<ul className={css.grid}>
 					{cast.map((item) => {
 						const picSource = item.profile_path ? `${PIC_URL}${item.profile_path}` : NO_IMAGE
