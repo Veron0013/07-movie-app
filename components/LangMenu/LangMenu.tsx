@@ -1,4 +1,3 @@
-//import { useState, useRef, useEffect } from "react"
 "use client"
 import { useEffect } from "react"
 import type { LangType } from "../../types/translationKeys"

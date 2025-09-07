@@ -51,10 +51,6 @@ const HomeClient = () => {
 		setScrollUp(false)
 	}
 
-	const handleClick = async (movie_id: number) => {
-		console.log("first", movie_id)
-	}
-
 	useEffect(() => {
 		const handleScroll = () => {
 			if (window.scrollY > SCROLL_THRESHOLD) {
@@ -82,7 +78,7 @@ const HomeClient = () => {
 					}}
 				/>
 			)}
-			{data && data?.results?.length > 0 && <MovieGrid movies={data.results} onSelect={handleClick} />}
+			{data && data?.results?.length > 0 && <MovieGrid movies={data.results} />}
 			{isScrollUp && <ScrollUp onClick={scrollToTop} />}
 		</>
 	)

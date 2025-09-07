@@ -58,11 +58,8 @@ const FilmDetailsClient = () => {
 		<>
 			{movie && (
 				<div className={css.modal}>
-					{/*<button className={css.closeButton} aria-label="Close modal" onClick={onClose}>
-					&times;
-				</button>*/}
 					{showAdultBadge && <Image src={ADULT_ALERT} alt="18+ Alert" className={css.adult} width={40} height={40} />}
-					<Image src={backdropPath} alt={movie.title} className={css.image} width={1200} height={800} />
+					<Image src={backdropPath} alt={movie.title} className={css.image} width={1440} height={800} />
 					<div className={css.content}>
 						<h2>{movieTitle}</h2>
 						<p className={css.overview}>{movie.overview}</p>
@@ -114,7 +111,7 @@ const FilmDetailsClient = () => {
 														className={css.logo_path}
 														src={`${PIC_URL}${el.logo_path}`}
 														alt={el.name}
-														width={20}
+														width={40}
 														height={30}
 													/>
 												)}

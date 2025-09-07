@@ -7,21 +7,24 @@ import Image from "next/image"
 import { useParams } from "next/navigation"
 import { useLangStore } from "@/stores/langStore"
 import MovieRating from "./MovieRating"
+import Favorites from "../Favorites/Favorites"
 
 interface MovieGridProps {
-	onSelect: (movieId: number) => void
+	//onSelect: (movieId: number) => void
 	movies: Movie[]
 }
 
-export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
+export default function MovieGrid({ movies }: MovieGridProps) {
 	const { translationTexts } = useLangStore()
 
 	const { lang } = useParams<{ lang: string }>()
 
-	const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
-		const movie_id: number = Number(e.currentTarget.id)
-		return onSelect(movie_id)
-	}
+	//const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
+	//	if ((e.target as HTMLElement).closest(`.favorites__container`)) return
+
+	//	const movie_id: number = Number(e.currentTarget.id)
+	//	return onSelect(movie_id)
+	//}
 	return (
 		<div>
 			<ul className={css.grid}>
@@ -36,12 +39,7 @@ export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
 							: ``
 
 					return (
-						<li
-							key={item.id}
-							id={item.id.toString()}
-							onClick={handleClick}
-							style={{ animationDelay: `${index * 100}ms` }}
-						>
+						<li key={item.id} id={item.id.toString()} style={{ animationDelay: `${index * 100}ms` }}>
 							<Link href={`/${lang}/movie/${item.id}`}>
 								<div className={css.card}>
 									<Image
@@ -50,8 +48,8 @@ export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
 										alt={item.title}
 										loading="lazy"
 										fill
-										//width={400}
-										//height={500}
+										sizes="(max-width: 768px) 100%, 
+										(min-width: 768px) 100%"
 									/>
 									<h2 className={css.title}>
 										{item.title}
@@ -68,6 +66,7 @@ export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
 										/>
 									)}
 									<MovieRating percentage={filmRating} />
+									<Favorites movieId={item.id} />
 								</div>
 							</Link>
 						</li>

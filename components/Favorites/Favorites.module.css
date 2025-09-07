@@ -1,0 +1,8 @@
+.favorites__container {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	z-index: 100;
+	padding: 6px;
+
+}

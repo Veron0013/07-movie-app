@@ -26,7 +26,7 @@ export default function Credits() {
 						const picSource = item.profile_path ? `${PIC_URL}${item.profile_path}` : NO_IMAGE
 						return (
 							<li key={`cast-${item.id}`}>
-								<Image className={css.image} src={picSource} alt={item.name} loading="lazy" width={200} height={300} />
+								<Image className={css.image} src={picSource} alt={item.name} loading="lazy" width={240} height={380} />
 								<div>
 									<p>{`${item.original_name} / ${item.name}`}</p>
 									<p>{item.character}</p>

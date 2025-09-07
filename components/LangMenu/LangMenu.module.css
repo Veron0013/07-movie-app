@@ -38,6 +38,8 @@
 	width: 100%;
 	transition: all 3ms ease-in;
 	text-align: center;
+	font-size: 18px;
+	padding: 4px;
 
 	&:hover,
 	&:focus {

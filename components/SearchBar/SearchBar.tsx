@@ -48,16 +48,11 @@ export default function SearchBar() {
 		router.push(`/${lang}/search?query=${queryData}`)
 	}
 
-	//function handleShowMenu(langValue: LangType): void {
-	//	setIsMenulOpen(false)
-	//	//setLanguage(langValue)
-	//}
-
 	const handleMenu = (e: React.MouseEvent<HTMLElement>): void => {
 		const rect = e.currentTarget.getBoundingClientRect()
 		setModalPos({
 			top: rect.bottom + window.scrollY + 4,
-			left: rect.left + window.scrollX - 16,
+			left: rect.left + window.scrollX - 36,
 		})
 		setIsMenulOpen(true)
 	}

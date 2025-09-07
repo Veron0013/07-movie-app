@@ -9,10 +9,10 @@
 	display: grid;
 	grid-auto-flow: column;
 	grid-auto-columns: 240px;
-	gap: 12px;
+	gap: 20px;
 
 	max-width: min(1440px, 100vw);
-	min-width: 320px;
+	/*min-width: 320px;*/
 	margin: 0 auto;
 	overflow-x: auto;
 	padding: 0;
