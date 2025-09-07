@@ -51,7 +51,7 @@
 	/*max-width: 282px;*/
 	/*height: 380px;*/
 	object-fit: contain;
-	object-position: top;
+	object-position: center;
 	display: block;
 }
 

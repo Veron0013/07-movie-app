@@ -5,7 +5,7 @@ import { ADULT_ALERT, NO_IMAGE, PIC_URL } from "@/lib/vars"
 import Link from "next/link"
 import Image from "next/image"
 import { useParams } from "next/navigation"
-//import { useLangStore } from "@/stores/langStore"
+import { useLangStore } from "@/stores/langStore"
 import MovieRating from "./MovieRating"
 
 interface MovieGridProps {
@@ -14,7 +14,7 @@ interface MovieGridProps {
 }
 
 export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
-	//const { translationTexts } = useLangStore()
+	const { translationTexts } = useLangStore()
 
 	const { lang } = useParams<{ lang: string }>()
 
@@ -30,9 +30,10 @@ export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
 					const showAdultBadge = item.genre_ids ? isAdultGenre(item.genre_ids, item.adult || false) : false
 					const filmRating: number = item.vote_average > 0 ? item.vote_average * 10 : 0
 					const picSource: string = item.poster_path !== null ? `${PIC_URL}${item.poster_path}` : NO_IMAGE
-					//const releaseYear: string =
-					//	item.release_date.length > 4 ? `${item.release_date.slice(0, 4)} ${translationTexts.desc_year}` : ``
-					const releaseYear: string = item.release_date
+					const releaseYear: string =
+						item.release_date && item.release_date.length > 4
+							? `${item.release_date.slice(0, 4)} ${translationTexts.desc_year}`
+							: ``
 
 					return (
 						<li
@@ -48,8 +49,9 @@ export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
 										src={picSource}
 										alt={item.title}
 										loading="lazy"
-										width={640}
-										height={480}
+										fill
+										//width={400}
+										//height={500}
 									/>
 									<h2 className={css.title}>
 										{item.title}
