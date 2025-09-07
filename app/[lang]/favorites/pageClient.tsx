@@ -52,7 +52,7 @@ const FavoritesClient = () => {
 		if (favorites.length > 0) {
 			mylist()
 		}
-	}, [favorites, lang])
+	}, [lang])
 
 	return (
 		<>

@@ -1,5 +1,3 @@
-import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query"
-import { getMovies, SearchParams } from "@/lib/movieService"
 import { Metadata } from "next"
 import FavoritesClient from "./pageClient"
 
