@@ -57,10 +57,6 @@ export default function SearchBar() {
 		setIsMenulOpen(true)
 	}
 
-	const handleTranding = () => {
-		router.push(`/${lang}`)
-	}
-
 	const handleCloseMenu = () => {
 		setIsMenulOpen(false)
 	}
@@ -72,9 +68,12 @@ export default function SearchBar() {
 					{`${translationTexts.searchBar_poweredBy} TMDB`}
 				</Link>
 				<div className={css.container__data}>
-					<p className={css.lang} onClick={handleTranding}>
+					<Link className={css.lang} href={`/${lang}`}>
 						{translationTexts.searchBar_Trend}
-					</p>
+					</Link>
+					<Link className={css.lang} href={`/${lang}/favorites`}>
+						{translationTexts.favorites}
+					</Link>
 					<p className={css.lang} onClick={handleMenu}>
 						{translationTexts.searchBar_lang}
 					</p>

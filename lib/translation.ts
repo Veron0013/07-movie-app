@@ -30,6 +30,7 @@ export const translations: Record<"uk-UA" | "en-US", TranslationKeys> = {
 		footer_rights: "Всі права захищено",
 		footer_dev: "Розробник",
 		footer_contact: "Зв'язатися з нами",
+		favorites: "Обрані",
 		sortOptions: {
 			"original_title.asc": "Назва (А–Я)",
 			"original_title.desc": "Назва (Я–А)",
@@ -76,6 +77,7 @@ export const translations: Record<"uk-UA" | "en-US", TranslationKeys> = {
 		footer_rights: "All rights reserved",
 		footer_dev: "Developer",
 		footer_contact: "Contact us",
+		favorites: "Favorites",
 
 		sortOptions: {
 			"original_title.asc": "Original Title (A–Z)",
