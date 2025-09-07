@@ -32,10 +32,12 @@ v 0.02/250907
 - favorites in local storage
 - language
 - cast as slot in movie_id
+- layouts
 
 ================================================
 v 0.01/250903
 
 - migration from react
+- metadata added
 
 ================================================
