@@ -1,7 +1,7 @@
 "use client"
 import { useParams } from "next/navigation"
 import { getMovieByIdServer } from "@/lib/movieService"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { SCROLL_THRESHOLD } from "@/lib/vars"
 //import toastMessage, { MyToastType } from "@/lib/messageService"
 import { Toaster } from "react-hot-toast"
@@ -18,7 +18,7 @@ const FavoritesClient = () => {
 	const [data, setData] = useState<Movie[]>([])
 	const [isScrollUp, setScrollUp] = useState(false)
 
-	const mylist = async () => {
+	const mylist = useCallback(async () => {
 		const movies: Movie[] = []
 		for (const movieId of favorites) {
 			try {
@@ -28,9 +28,14 @@ const FavoritesClient = () => {
 				continue
 			}
 		}
-		console.log(movies)
 		setData(movies)
-	}
+	}, [favorites, lang])
+
+	useEffect(() => {
+		if (favorites.length > 0) {
+			mylist()
+		}
+	}, [mylist, favorites])
 
 	const scrollToTop = () => {
 		window.scrollTo({ top: 0, behavior: "smooth" })
@@ -47,12 +52,6 @@ const FavoritesClient = () => {
 			window.removeEventListener("scroll", handleScroll)
 		}
 	}, [])
-
-	useEffect(() => {
-		if (favorites.length > 0) {
-			mylist()
-		}
-	}, [lang])
 
 	return (
 		<>
