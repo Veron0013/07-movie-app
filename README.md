@@ -26,3 +26,16 @@ https://api.themoviedb.org/3/discover/movie
 
 GENRES
 https://api.themoviedb.org/3/genre/movie/list
+
+v 0.02/250907
+
+- favorites in local storage
+- language
+- cast as slot in movie_id
+
+================================================
+v 0.01/250903
+
+- migration from react
+
+================================================
