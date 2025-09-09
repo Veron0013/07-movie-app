@@ -28,6 +28,9 @@ export interface TranslationKeys {
 	footer_dev: string
 	footer_contact: string
 	favorites: string
+	cast: string
+	recomendation: string
+	similar: string
 	sortOptions: {
 		"original_title.asc": string
 		"original_title.desc": string

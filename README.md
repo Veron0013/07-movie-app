@@ -14,7 +14,7 @@ https://api.themoviedb.org/3/movie/{movie_id}/images
 ...[movie_id]/recommendations
 ...[movie_id]/similar
 
-DISOVER
+DISCOVER
 https://api.themoviedb.org/3/discover/movie
 
 - sorting (add type)
@@ -26,6 +26,14 @@ https://api.themoviedb.org/3/discover/movie
 
 GENRES
 https://api.themoviedb.org/3/genre/movie/list
+
+v 0.03/250909
+
+- Recomendations
+- Similar
+- styles
+
+================================================
 
 v 0.02/250907
 

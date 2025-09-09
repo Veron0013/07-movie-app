@@ -31,6 +31,9 @@ export const translations: Record<"uk-UA" | "en-US", TranslationKeys> = {
 		footer_dev: "Розробник",
 		footer_contact: "Зв'язатися з нами",
 		favorites: "Обрані",
+		cast: "Актори",
+		recomendation: "Рекомендовані",
+		similar: "Схожі за стилем",
 		sortOptions: {
 			"original_title.asc": "Назва (А–Я)",
 			"original_title.desc": "Назва (Я–А)",
@@ -78,7 +81,9 @@ export const translations: Record<"uk-UA" | "en-US", TranslationKeys> = {
 		footer_dev: "Developer",
 		footer_contact: "Contact us",
 		favorites: "Favorites",
-
+		cast: "Cast",
+		recomendation: "Recomendation",
+		similar: "Similar",
 		sortOptions: {
 			"original_title.asc": "Original Title (A–Z)",
 			"original_title.desc": "Original Title (Z–A)",

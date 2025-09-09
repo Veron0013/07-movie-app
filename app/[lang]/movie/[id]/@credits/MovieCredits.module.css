@@ -15,7 +15,7 @@
 	/*min-width: 320px;*/
 	margin: 0 auto;
 	overflow-x: auto;
-	padding: 0;
+	padding: 8px;
 	list-style: none;
 	scroll-snap-type: x mandatory;
 }
@@ -124,4 +124,8 @@
 	margin: 0;
 	padding: 4px;
 	width: 62px;
+}
+
+.slot__title {
+	padding: 12px;
 }
