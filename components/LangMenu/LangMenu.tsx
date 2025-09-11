@@ -3,7 +3,7 @@ import { useEffect } from "react"
 import type { LangType } from "../../types/translationKeys"
 import css from "./LangMenu.module.css"
 import { useLangStore } from "@/stores/langStore"
-import { useRouter, usePathname } from "next/navigation"
+import { useRouter, usePathname, useSearchParams } from "next/navigation"
 
 interface LanguageProps {
 	onClose: () => void
@@ -20,6 +20,8 @@ export default function DropdownMenu({ onClose, position }: LanguageProps) {
 	const router = useRouter()
 	const { changeLang } = useLangStore()
 	const pathname = usePathname()
+	const searchParams = useSearchParams()
+	const cPage: number = Number(searchParams.get("page"))
 
 	//// Закриття по кліку поза меню
 	const handleBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -48,12 +50,19 @@ export default function DropdownMenu({ onClose, position }: LanguageProps) {
 	function handleClick(langValue: string): void {
 		changeLang(langValue as LangType)
 
-		// розбиваємо шлях на сегменти
 		const segments = pathname.split("/")
-		// перший сегмент завжди пустий (через leading "/"), другий — це lang
 		segments[1] = langValue
 
-		const newPath = segments.join("/")
+		const params = new URLSearchParams(searchParams.toString())
+
+		if (cPage) {
+			params.set("page", String(cPage))
+		} else {
+			params.delete("page")
+		}
+
+		const newPath = `${segments.join("/")}${params.size ? "?" + params.toString() : ""}`
+
 		router.push(newPath)
 		onClose()
 	}

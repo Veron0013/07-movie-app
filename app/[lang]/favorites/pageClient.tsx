@@ -14,7 +14,7 @@ import { Movie } from "@/types/movie"
 const FavoritesClient = () => {
 	const { lang } = useParams<{ lang: string }>()
 	const { favorites } = useFavoriteStore()
-	console.log(favorites)
+	//console.log(favorites)
 	const [data, setData] = useState<Movie[]>([])
 	const [isScrollUp, setScrollUp] = useState(false)
 

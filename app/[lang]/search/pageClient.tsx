@@ -16,7 +16,7 @@ const SearchClient = () => {
 	const searchParams = useSearchParams()
 
 	//const router = useRouter()
-	const [currentPage, setCurrentPage] = useState<number>(1)
+	const [currentPage, setCurrentPage] = useState<number>(Number(searchParams.get("page")) || 1)
 
 	const [isScrollUp, setScrollUp] = useState(false)
 

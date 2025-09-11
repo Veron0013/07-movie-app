@@ -1,6 +1,6 @@
 "use client"
 import { keepPreviousData, useQuery } from "@tanstack/react-query"
-import { useParams, useSearchParams } from "next/navigation"
+import { useParams } from "next/navigation"
 import { getTrandingMovies, SearchParams } from "@/lib/movieService"
 import { useEffect, useState } from "react"
 import { SCROLL_THRESHOLD } from "@/lib/vars"
@@ -11,13 +11,10 @@ import ScrollUp from "@/components/ScrollUp/ScrollUp"
 import Pagination from "@/components/Pagination/Pagination"
 import { useLangStore } from "@/stores/langStore"
 
-const HomeClient = () => {
+const FilterClient = () => {
 	const { lang } = useParams<{ lang: string }>()
 
-	const searchParams = useSearchParams()
-	const cPage: number = Number(searchParams.get("page"))
-
-	const [currentPage, setCurrentPage] = useState<number>(cPage ? cPage : 1)
+	const [currentPage, setCurrentPage] = useState<number>(1)
 
 	const [isScrollUp, setScrollUp] = useState(false)
 
@@ -87,4 +84,4 @@ const HomeClient = () => {
 	)
 }
 
-export default HomeClient
+export default FilterClient

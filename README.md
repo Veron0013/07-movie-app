@@ -27,6 +27,12 @@ https://api.themoviedb.org/3/discover/movie
 GENRES
 https://api.themoviedb.org/3/genre/movie/list
 
+v 0.04/250911
+
+- pagination as search-param
+
+================================================
+
 v 0.03/250909
 
 - Recomendations
