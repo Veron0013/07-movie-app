@@ -1,7 +1,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --main-button-color: #ffff
+  --main-button-color: #ffff;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
 @media (prefers-color-scheme: dark) {
