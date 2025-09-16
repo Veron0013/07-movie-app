@@ -4,7 +4,6 @@ import { getMovieByIdServer } from "@/lib/movieService"
 import { useCallback, useEffect, useState } from "react"
 import { SCROLL_THRESHOLD } from "@/lib/vars"
 //import toastMessage, { MyToastType } from "@/lib/messageService"
-import { Toaster } from "react-hot-toast"
 import MovieGrid from "@/components/MovieGrid/MovieGrid"
 import ScrollUp from "@/components/ScrollUp/ScrollUp"
 import { useFavoriteStore } from "@/stores/favoritesStore"
@@ -55,7 +54,6 @@ const FavoritesClient = () => {
 
 	return (
 		<>
-			<Toaster />
 			{data.length > 0 && <MovieGrid movies={data} />}
 			{isScrollUp && <ScrollUp onClick={scrollToTop} />}
 		</>

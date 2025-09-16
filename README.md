@@ -27,6 +27,14 @@ https://api.themoviedb.org/3/discover/movie
 GENRES
 https://api.themoviedb.org/3/genre/movie/list
 
+v 0.05/250916
+
+- pagination style fixes
+- layout style fixes
+- movie list style fixes
+
+================================================
+
 v 0.04/250911
 
 - pagination as search-param

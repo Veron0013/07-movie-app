@@ -26,7 +26,7 @@ export default function MovieGrid({ movies }: MovieGridProps) {
 	//	return onSelect(movie_id)
 	//}
 	return (
-		<div>
+		<>
 			<ul className={css.grid}>
 				{movies.map((item: Movie, index: number) => {
 					//console.log(item)
@@ -73,6 +73,6 @@ export default function MovieGrid({ movies }: MovieGridProps) {
 					)
 				})}
 			</ul>
-		</div>
+		</>
 	)
 }

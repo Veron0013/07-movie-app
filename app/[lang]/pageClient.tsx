@@ -5,7 +5,6 @@ import { getTrandingMovies, SearchParams } from "@/lib/movieService"
 import { useEffect, useState } from "react"
 import { SCROLL_THRESHOLD } from "@/lib/vars"
 import toastMessage, { MyToastType } from "@/lib/messageService"
-import { Toaster } from "react-hot-toast"
 import MovieGrid from "@/components/MovieGrid/MovieGrid"
 import ScrollUp from "@/components/ScrollUp/ScrollUp"
 import Pagination from "@/components/Pagination/Pagination"
@@ -71,7 +70,6 @@ const HomeClient = () => {
 
 	return (
 		<>
-			<Toaster />
 			{total_pages > 1 && (
 				<Pagination
 					currentPage={currentPage}
