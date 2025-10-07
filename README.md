@@ -23,9 +23,17 @@ https://api.themoviedb.org/3/discover/movie
   &with_genres=35,36
 - year
   &release_date.gte=2020-01-01&release_date.lte=2020-12-31
+  discover?sort_by=popularity.desc&release_date.gte=2023-01-01&release_date.lte=2024-12-31
 
-GENRES
-https://api.themoviedb.org/3/genre/movie/list
+  GENRES
+  https://api.themoviedb.org/3/genre/movie/list
+
+v 0.06/251007
+
+- lang menu scroll - close
+- discover added
+
+================================================
 
 v 0.05/250916
 

@@ -38,12 +38,14 @@ export default function DropdownMenu({ onClose, position }: LanguageProps) {
 			}
 		}
 
+		//document.body.style.overflow = "hidden"
 		document.addEventListener("keydown", handleKeyDown)
-		document.body.style.overflow = "hidden"
+		document.addEventListener("scroll", () => onClose())
 
 		return () => {
 			document.removeEventListener("keydown", handleKeyDown)
-			document.body.style.overflow = ""
+			document.removeEventListener("scroll", () => onClose())
+			//document.body.style.overflow = ""
 		}
 	}, [onClose])
 
@@ -79,14 +81,10 @@ export default function DropdownMenu({ onClose, position }: LanguageProps) {
 				<ul>
 					<li className={css.menu__item} onClick={() => handleClick("uk-UA")}>
 						UA
-						{/*<Link href={"/uk-UA"}>UA</Link>*/}
 					</li>
 					<li className={css.menu__item} onClick={() => handleClick("en-US")}>
 						EN
 					</li>
-					{/*<li className={css.menu__item}>
-						<Link href={"/en-US"}>EN</Link>
-					</li>*/}
 				</ul>
 			</div>
 		</div>

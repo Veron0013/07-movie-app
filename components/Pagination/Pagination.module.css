@@ -1,6 +1,6 @@
 .pagination {
 	display: flex;
-	gap: 6px;
+	gap: 8px;
 	margin: 16px 0;
 	list-style: none;
 	padding: 0;
@@ -10,8 +10,8 @@
 
 .pagination li {
 	user-select: none;
-	width: 36px;
-	height: 36px;
+	width: 46px;
+	height: 46px;
 	border: 1px solid rgba(255, 255, 255, 0.4);
 	cursor: pointer;
 	border-radius: 0.625rem;
