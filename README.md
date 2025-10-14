@@ -28,6 +28,14 @@ https://api.themoviedb.org/3/discover/movie
   GENRES
   https://api.themoviedb.org/3/genre/movie/list
 
+v 0.07/251014
+
+- movie grid - fixed view
+- movie@video added
+- discover filter UI select added
+
+================================================
+
 v 0.06/251007
 
 - lang menu scroll - close

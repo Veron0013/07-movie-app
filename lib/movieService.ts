@@ -1,6 +1,6 @@
 import axios from "axios"
-import { TRANDING_URL, DETAILS_URL, adultGenreIds, SEARCH_URL, DISCOVER_URL } from "./vars"
-import { Cast, CastData, Movie, SortOption } from "@/types/movie"
+import { TRANDING_URL, DETAILS_URL, adultGenreIds, SEARCH_URL, DISCOVER_URL, GENRES_URL } from "./vars"
+import { Cast, CastData, Genre, Genres, Movie, SortOption, Video } from "@/types/movie"
 
 export interface SearchParams {
 	include_adult?: boolean
@@ -19,6 +19,11 @@ export interface ApiMovieData {
 	total_results: number
 }
 
+export interface ApiVideoData {
+	id: number
+	results: Video[]
+}
+
 interface ApiQueryParams {
 	headers: {
 		accept: "application/json"
@@ -30,8 +35,8 @@ interface ApiQueryParams {
 export interface DiscoverFilter {
 	include_adult?: boolean
 	include_video?: boolean
-	language: string // наприклад "en-US"
-	page: number
+	language?: string // наприклад "en-US"
+	page?: number
 	primary_release_year?: number
 	primary_release_date_gte?: string // формат: YYYY-MM-DD
 	primary_release_date_lte?: string // формат: YYYY-MM-DD
@@ -52,7 +57,7 @@ export interface DiscoverFilter {
 	with_origin_country?: string
 	with_original_language?: string
 	with_people?: string
-	with_release_type?: number // 1–6
+	with_release_type?: number //1-6
 	with_runtime_gte?: number
 	with_runtime_lte?: number
 	with_watch_providers?: string
@@ -104,6 +109,18 @@ export const getMovieByIdRecomendations = async (id: string, language: string, s
 	return response.results
 }
 
+export const getMovieByIdVideo = async (id: string, language: string, subPath = "/videos"): Promise<Video[]> => {
+	const qParams: SearchParams = {
+		movie_id: Number(id),
+		language,
+	}
+	const response: ApiVideoData = await getApiData(
+		`${DETAILS_URL}${qParams.movie_id}${subPath}`,
+		createQueryParams(qParams)
+	)
+	return response.results
+}
+
 export const isAdultGenre = (genreId: number[], isAdult: boolean): boolean => {
 	const isAdultGenre = genreId.some((id) => adultGenreIds.includes(id))
 	return isAdult || isAdultGenre
@@ -111,6 +128,12 @@ export const isAdultGenre = (genreId: number[], isAdult: boolean): boolean => {
 
 export const getMoviesDiscover = async (searchParams: SearchParams): Promise<ApiMovieData> => {
 	return await getApiData(DISCOVER_URL, createQueryParams(searchParams))
+}
+
+export const getMoviesGenres = async (searchParams: SearchParams): Promise<Genre[]> => {
+	const objGenres: Genres = await getApiData(GENRES_URL, createQueryParams(searchParams))
+
+	return objGenres.genres
 }
 
 const createQueryParams = (searchParams: SearchParams): ApiQueryParams => ({

@@ -6,6 +6,7 @@ export default async function MovieLayout({
 	credits,
 	recomendations,
 	similar,
+	pageVideo,
 }: //reviews,
 //similar,
 {
@@ -13,13 +14,15 @@ export default async function MovieLayout({
 	credits: ReactNode
 	recomendations: ReactNode
 	similar: ReactNode
+	pageVideo: ReactNode
 }) {
 	return (
 		<div className={css.movie__layout}>
-			<div>{children}</div>
-			<div>{credits}</div>
-			<div>{recomendations}</div>
-			<div>{similar}</div>
+			{children}
+			{pageVideo}
+			{credits}
+			{recomendations}
+			{similar}
 		</div>
 	)
 }

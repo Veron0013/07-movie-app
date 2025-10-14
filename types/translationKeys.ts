@@ -31,6 +31,15 @@ export interface TranslationKeys {
 	cast: string
 	recomendation: string
 	similar: string
+	video: string
+	sortBy: string
+	release_date_from: string
+	release_date_to: string
+	dicovery_filters: string
+	data_choose: string
+	apply_filters: string
+	select_genres: string
+	button_filter: string
 	sortOptions: {
 		"original_title.asc": string
 		"original_title.desc": string

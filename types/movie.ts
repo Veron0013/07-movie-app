@@ -15,7 +15,7 @@ export interface Movie {
 	vote_count: number // за замовчуванням 0
 	belongs_to_collection?: object | null
 	budget?: number
-	genres?: { id: number; name: string }[]
+	genres?: Genre[]
 	homepage?: string
 	imdb_id?: string
 	production_companies?: {
@@ -37,6 +37,28 @@ export interface Movie {
 	status?: string
 	tagline?: string
 	media_type?: string
+}
+
+export interface Video {
+	id: string
+	iso_639_1: string
+	iso_3166_1: string
+	name: string
+	key: string
+	site: string
+	size: number // integer, Defaults to 0
+	type: string
+	official: boolean // Defaults to true
+	published_at: string // ISO string
+}
+
+export interface Genre {
+	id: number
+	name: string
+}
+
+export interface Genres {
+	genres: [Genre]
 }
 
 //sort option

@@ -4,6 +4,8 @@ export const FLAG_URL: string = "http://purecatamphetamine.github.io/country-fla
 export const TRANDING_URL: string = "https://api.themoviedb.org/3/trending/movie/week"
 export const DETAILS_URL: string = "https://api.themoviedb.org/3/movie/"
 export const DISCOVER_URL: string = "https://api.themoviedb.org/3/discover/movie"
+export const GENRES_URL: string = "https://api.themoviedb.org/3/genre/movie/list"
+
 export const ADULT_ALERT: string = "/18_Plus.svg"
 export const NO_IMAGE: string = "/noImage.webp"
 export const SCROLL_TO_TOP: string = "/scrollToTop.svg"

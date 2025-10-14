@@ -1,12 +1,12 @@
 .grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(260px, 0.3fr));
+	justify-content: center;
 	max-width: 1440px;
 	margin: 0 auto;
 	gap: 12px;
 	list-style: none;
-	padding: 0;
-	padding-bottom: 20px;
+	padding: 0 8px 20px;
 }
 
 .grid li {

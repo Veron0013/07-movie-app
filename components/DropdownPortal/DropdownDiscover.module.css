@@ -1,0 +1,108 @@
+.dropdown_container {
+	max-width: min(1440px, 100vw);
+	width: 100%;
+	align-self: center;
+	margin-bottom: 14px;
+}
+
+.grid {
+	display: grid;
+	justify-content: center;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 0.98fr));
+	max-width: min(1440px, 100vw);
+	gap: 1rem;
+	padding: 1rem;
+	background-color: #0f172a;
+	/* темний фон */
+	border-radius: 1rem;
+	color: #f1f5f9;
+}
+
+.grid h3 {
+	text-align: center;
+	grid-column: 1 / -1;
+	font-size: 1.25rem;
+	margin-bottom: 0.5rem;
+}
+
+.grid label {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	font-size: 0.9rem;
+}
+
+.genre_label {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	font-size: 0.9rem;
+}
+
+.genre_label select {
+	width: 100%;
+}
+
+.grid select,
+.grid :global(.react-select__control) {
+	border-radius: 0.5rem;
+}
+
+.grid button {
+	grid-column: 1 / -1;
+	background-color: #0a66c2;
+	color: white;
+	padding: 0.6rem 1.2rem;
+	border: none;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	font-weight: 500;
+	font-size: 16px;
+	transition: background-color 0.2s ease;
+}
+
+.grid button:hover {
+	background-color: #1e40af;
+}
+
+.date_select {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.date_select input[type="date"] {
+	background-color: #1e293b;
+	color: white;
+	border: 1px solid #334155;
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+}
+
+.date_select input[type="date"]:hover {
+	border-color: #64748b;
+}
+
+.date_select input[type="date"]:focus {
+	outline: none;
+	border-color: #2563eb;
+	box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3);
+}
+
+/* --- адаптив --- */
+@media (min-width: 640px) {
+	.grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 1024px) {
+	.grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.grid .genre_label {
+		grid-column: 1 / -1;
+		width: 100%;
+	}
+}

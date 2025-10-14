@@ -6,6 +6,8 @@ import Footer from "@/components/Footer/Footer"
 import SearchBar from "@/components/SearchBar/SearchBar"
 import { Toaster } from "react-hot-toast"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+import { Suspense } from "react"
+import Loader from "./loader"
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -49,14 +51,14 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={`${geistSans.variable} ${geistMono.variable}`}>
 				<TanStackProvider>
-					{/*<LanguageProvider>*/}
 					<div className="layout">
-						<SearchBar />
+						<Suspense fallback={<Loader />}>
+							<SearchBar />
+						</Suspense>
 						<main className="main">{children}</main>
 						<Footer />
 					</div>
 					<Toaster />
-					{/*</LanguageProvider>*/}
 					<ReactQueryDevtools initialIsOpen={false} />
 				</TanStackProvider>
 			</body>

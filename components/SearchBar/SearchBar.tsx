@@ -10,6 +10,7 @@ import toastMessage, { MyToastType } from "@/lib/messageService"
 import Link from "next/link"
 import { useLangStore } from "@/stores/langStore"
 import { useRouter } from "next/navigation"
+import DropdownDiscover from "../DropdownPortal/DropdownDiscover"
 
 //interface SearchBarProps {
 //	onSubmit: (query: string) => void
@@ -27,6 +28,7 @@ export default function SearchBar() {
 	const router = useRouter()
 
 	const [isMenuOpen, setIsMenulOpen] = useState(false)
+	const [isFilterOpen, setIsFilterOpen] = useState(false)
 	const [modalPos, setModalPos] = useState<{ top: number; left: number }>({ top: 0, left: 0 })
 
 	const initialFormValues: FormValues = {
@@ -59,45 +61,56 @@ export default function SearchBar() {
 
 	const handleCloseMenu = () => {
 		setIsMenulOpen(false)
+		setIsFilterOpen(false)
 	}
 
 	return (
-		<header className={css.header}>
-			<div className={css.container}>
-				<Link className={css.link} href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">
-					{`${translationTexts.searchBar_poweredBy} TMDB`}
-				</Link>
-				<div className={css.container__data}>
-					<Link className={css.lang} href={`/${lang}`}>
-						{translationTexts.searchBar_Trend}
+		<>
+			<header className={css.header}>
+				<div className={css.container}>
+					<Link className={css.link} href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">
+						{`${translationTexts.searchBar_poweredBy} TMDB`}
 					</Link>
-					<Link className={css.lang} href={`/${lang}/favorites`}>
-						{translationTexts.favorites}
-					</Link>
-					<p className={css.lang} onClick={handleMenu}>
-						{translationTexts.searchBar_lang}
-					</p>
-					{isMenuOpen && createPortal(<LangMenu onClose={handleCloseMenu} position={modalPos} />, document.body)}
-					<Formik initialValues={initialFormValues} validationSchema={OrderSchema} onSubmit={handleSubmit}>
-						<Form className={css.form}>
-							<div className={css.wrapper}>
-								<Field
-									className={css.input}
-									type="text"
-									name="query"
-									autoComplete="off"
-									placeholder={translationTexts.searchBar_placeholder}
-									autoFocus
-								/>
-								<ErrorMessage name="query" component="div" className={css.error} />
-							</div>
-							<button className={css.button} type="submit">
-								{translationTexts.searchBar_Button}
-							</button>
-						</Form>
-					</Formik>
+					<div className={css.container__data}>
+						<Link className={css.lang} href={`/${lang}`}>
+							{translationTexts.searchBar_Trend}
+						</Link>
+						<Link className={css.lang} href={`/${lang}/favorites`}>
+							{translationTexts.favorites}
+						</Link>
+						<p className={css.lang} onClick={handleMenu}>
+							{translationTexts.searchBar_lang}
+						</p>
+						{isMenuOpen && createPortal(<LangMenu onClose={handleCloseMenu} position={modalPos} />, document.body)}
+						<Formik initialValues={initialFormValues} validationSchema={OrderSchema} onSubmit={handleSubmit}>
+							<Form className={css.form}>
+								<div className={css.wrapper}>
+									<Field
+										className={css.input}
+										type="text"
+										name="query"
+										autoComplete="off"
+										placeholder={translationTexts.searchBar_placeholder}
+										autoFocus
+									/>
+									<ErrorMessage name="query" component="div" className={css.error} />
+								</div>
+								<button className={css.button} type="submit">
+									{translationTexts.searchBar_Button}
+								</button>
+								<button
+									className={`${css.button} ${css.button_filter} ${isFilterOpen ? css.open : ""}`}
+									type="button"
+									onClick={() => setIsFilterOpen(!isFilterOpen)}
+								>
+									{translationTexts.button_filter}
+								</button>
+							</Form>
+						</Formik>
+					</div>
 				</div>
-			</div>
-		</header>
+			</header>
+			{isFilterOpen && <DropdownDiscover lang={lang} />}
+		</>
 	)
 }
