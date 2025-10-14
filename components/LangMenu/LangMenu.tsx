@@ -38,13 +38,15 @@ export default function DropdownMenu({ onClose, position }: LanguageProps) {
 			}
 		}
 
+		const handleScroll = () => onClose()
+
 		//document.body.style.overflow = "hidden"
 		document.addEventListener("keydown", handleKeyDown)
-		document.addEventListener("scroll", () => onClose())
+		document.addEventListener("scroll", handleScroll)
 
 		return () => {
 			document.removeEventListener("keydown", handleKeyDown)
-			document.removeEventListener("scroll", () => onClose())
+			document.removeEventListener("scroll", handleScroll)
 			//document.body.style.overflow = ""
 		}
 	}, [onClose])

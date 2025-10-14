@@ -20,6 +20,7 @@ export default function Credits() {
 		refetchOnMount: true,
 	})
 
+	if (!cast?.length) return null
 	return (
 		<div className={css.grid__container}>
 			<h2 className={css.slot__title}>{translationTexts.cast}</h2>

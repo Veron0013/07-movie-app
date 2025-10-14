@@ -54,7 +54,7 @@ export default function SearchBar() {
 		const rect = e.currentTarget.getBoundingClientRect()
 		setModalPos({
 			top: rect.bottom + window.scrollY + 4,
-			left: rect.left + window.scrollX - 36,
+			left: rect.left + window.scrollX - 44,
 		})
 		setIsMenulOpen(true)
 	}
