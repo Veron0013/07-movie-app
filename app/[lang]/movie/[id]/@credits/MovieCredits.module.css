@@ -11,7 +11,7 @@
 	grid-auto-columns: 240px;
 	gap: 20px;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	max-width: min(1440px, 100vw);
+	max-width: min(1416px, 100vw);
 	/*min-width: 320px;*/
 	margin: 0 auto;
 	overflow-x: auto;
@@ -50,8 +50,10 @@
 	/*cursor: pointer;*/
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 	background-color: #222;
-	/*width: 350px;*/
+	/*width: 300px;*/
 	aspect-ratio: 16/9;
+	padding: 20px 0;
+	background-color: transparent;
 	/*min-height: ;*/
 	/*display: flex;
 	align-items: center;
@@ -60,12 +62,15 @@
 
 .video_card article {
 	display: block;
-	width: 100%;
-	padding-top: 56.25%;
+	/*width: 250px*/
 	/* 16:9 пропорція */
 	background-size: cover;
 	background-position: center;
 	border-radius: 12px;
+}
+
+.video_card article p {
+	padding: 0 10px;
 }
 
 @keyframes fadeUp {

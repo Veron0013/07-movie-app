@@ -98,13 +98,15 @@ export default function SearchBar() {
 								<button className={css.button} type="submit">
 									{translationTexts.searchBar_Button}
 								</button>
-								<button
-									className={`${css.button} ${css.button_filter} ${isFilterOpen ? css.open : ""}`}
-									type="button"
-									onClick={() => setIsFilterOpen(!isFilterOpen)}
-								>
-									{translationTexts.button_filter}
-								</button>
+								<div>
+									<button
+										className={`${css.button} ${css.button_filter} ${isFilterOpen ? css.open : ""}`}
+										type="button"
+										onClick={() => setIsFilterOpen(!isFilterOpen)}
+									>
+										{translationTexts.button_filter}
+									</button>
+								</div>
 							</Form>
 						</Formik>
 					</div>

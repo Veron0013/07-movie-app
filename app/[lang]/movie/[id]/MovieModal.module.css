@@ -4,12 +4,6 @@
 	width: 100%;
 	margin: 0 auto;
 	padding: 0 12px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	gap: 12px;
 }
 
 .backdrop {
@@ -25,16 +19,16 @@
 	align-items: center;
 }
 
-.modal {
+.movie_container {
 	position: relative;
 	border-radius: 8px;
 	overflow: hidden;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+	/*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);*/
 	background-color: #222;
 	width: 100%;
 	/*height: 90vh;*/
 	min-width: 320px;
-	/*max-width: 1440px;*/
+	max-width: min(1440px, 100vw);
 	min-height: 300px;
 }
 
@@ -43,6 +37,8 @@
 	height: 100%;
 	object-fit: cover;
 	display: block;
+	padding: 0;
+	margin: 0;
 }
 
 .adult {
@@ -54,10 +50,12 @@
 }
 
 .content {
+
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
+	max-width: min(1440px, 100vw);
 	background: rgba(0, 0, 0, 0.85);
 	color: #fff;
 	padding: 20px;

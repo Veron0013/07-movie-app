@@ -57,7 +57,7 @@ const FilmDetailsClient = () => {
 	return (
 		<>
 			{movie && (
-				<div className={css.modal}>
+				<div className={css.movie_container}>
 					{showAdultBadge && <Image src={ADULT_ALERT} alt="18+ Alert" className={css.adult} width={40} height={40} />}
 					<Image src={backdropPath} alt={movie.title} className={css.image} width={1440} height={800} />
 					<div className={css.content}>

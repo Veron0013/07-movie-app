@@ -1,5 +1,5 @@
 .header {
-	padding: 20px;
+	padding: 20px 0;
 	background-color: #ffffff;
 	border-bottom: 1px solid #e0e0e0;
 	margin-bottom: 20px;
@@ -7,6 +7,8 @@
 
 .container {
 	max-width: 1440px;
+	padding: 0 12px;
+	width: 100%;
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
@@ -21,6 +23,7 @@
 	align-items: center;
 	flex-wrap: wrap;
 	gap: 24px;
+	width: 100%;
 }
 
 
@@ -55,9 +58,10 @@
 .form {
 	display: flex;
 	gap: 8px;
-	flex-wrap: nowrap;
-	max-width: 100%;
-	justify-content: end;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: flex-end;
+	align-items: center;
 }
 
 .input {
@@ -65,7 +69,6 @@
 	font-size: 16px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
-	max-width: 100%;
 	width: 100%;
 }
 
@@ -81,6 +84,10 @@
 
 .button:hover {
 	background-color: #004182;
+}
+
+.button_filter {
+	width: 120px;
 }
 
 .button_filter::after {
@@ -117,4 +124,17 @@
 	position: relative;
 	margin: 0;
 	padding: 0;
+	width: 100%;
+}
+
+@media (min-width: 768px) {
+	.form {
+		flex-wrap: nowrap;
+	}
+}
+
+@media (min-width: 1024px) {
+	.form {
+		width: 600px;
+	}
 }
