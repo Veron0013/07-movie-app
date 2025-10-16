@@ -50,8 +50,11 @@ export default function Similar() {
 										alt={item.title}
 										loading="lazy"
 										fill
-										sizes="(max-width: 768px) 100%, 
-										(min-width: 768px) 100%"
+										sizes="
+										(max-width: 500px) 100vw,
+										(max-width: 900px) 50vw,
+										(max-width: 1200px) 33vw,
+										25vw"
 									/>
 									<h2 className={css.title}>
 										{item.title}

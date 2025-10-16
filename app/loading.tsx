@@ -1,10 +1,10 @@
 "use client"
 import { ScaleLoader } from "react-spinners"
-import css from "../components/Loader/Loader.module.css"
+import css from "../components/Loader/Loading.module.css"
 import type { CSSProperties } from "react"
 import { useLangStore } from "@/stores/langStore"
 
-export default function Loader() {
+export default function Loading() {
 	const override: CSSProperties = {
 		display: "block",
 		margin: "0 auto",

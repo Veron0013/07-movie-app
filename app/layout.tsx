@@ -7,7 +7,7 @@ import SearchBar from "@/components/SearchBar/SearchBar"
 import { Toaster } from "react-hot-toast"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { Suspense } from "react"
-import Loader from "./loader"
+import Loader from "./loading"
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -55,7 +55,9 @@ export default function RootLayout({
 						<Suspense fallback={<Loader />}>
 							<SearchBar />
 						</Suspense>
-						<main className="main">{children}</main>
+						<Suspense fallback={<Loader />}>
+							<main className="main">{children}</main>
+						</Suspense>
 						<Footer />
 					</div>
 					<Toaster />
