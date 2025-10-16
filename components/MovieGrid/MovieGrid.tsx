@@ -49,7 +49,7 @@ export default function MovieGrid({ movies }: MovieGridProps) {
 										loading="lazy"
 										fill
 										sizes="
-										(max-width: 500px) 100vw,
+										(max-width: 500px) (100vw - 16px),
 										(max-width: 900px) 50vw,
 										(max-width: 1200px) 33vw,
 										25vw"
