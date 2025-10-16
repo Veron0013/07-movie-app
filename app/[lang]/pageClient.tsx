@@ -18,6 +18,8 @@ const HomeClient = () => {
 
 	const [currentPage, setCurrentPage] = useState<number>(cPage ? cPage : 1)
 
+	//console.log(cPage, currentPage)
+
 	const [isScrollUp, setScrollUp] = useState(false)
 
 	const { translationTexts } = useLangStore()
@@ -29,7 +31,7 @@ const HomeClient = () => {
 
 	const {
 		data,
-		//isLoading,
+		isLoading,
 		//error,
 	} = useQuery({
 		queryKey: ["Tranding", lang, currentPage],

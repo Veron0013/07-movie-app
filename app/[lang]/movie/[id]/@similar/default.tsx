@@ -16,7 +16,7 @@ export default function Similar() {
 	const { translationTexts } = useLangStore()
 	const {
 		data: movies,
-		//isLoading,
+		isLoading,
 		//error,
 	} = useQuery({
 		queryKey: ["FilmDetailsSimilar", id, lang],

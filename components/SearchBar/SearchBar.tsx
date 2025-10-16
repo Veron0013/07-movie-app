@@ -72,7 +72,7 @@ export default function SearchBar() {
 						{`${translationTexts.searchBar_poweredBy} TMDB`}
 					</Link>
 					<div className={css.container__data}>
-						<Link className={css.lang} href={`/${lang}`}>
+						<Link className={css.lang} href={`/${lang}?page=1`}>
 							{translationTexts.searchBar_Trend}
 						</Link>
 						<Link className={css.lang} href={`/${lang}/favorites`}>

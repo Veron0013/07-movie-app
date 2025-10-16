@@ -12,7 +12,7 @@ export default function Credits() {
 	const { translationTexts } = useLangStore()
 	const {
 		data: cast,
-		//isLoading,
+		isLoading,
 		//error,
 	} = useQuery({
 		queryKey: ["FilmDetails", id, lang],

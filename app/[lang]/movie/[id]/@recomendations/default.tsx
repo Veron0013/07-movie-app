@@ -16,7 +16,7 @@ export default function Recomendations() {
 	const { translationTexts } = useLangStore()
 	const {
 		data: movies,
-		//isLoading,
+		isLoading,
 		//error,
 	} = useQuery({
 		queryKey: ["FilmDetailsRecomendations", id, lang],

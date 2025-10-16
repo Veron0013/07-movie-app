@@ -11,7 +11,7 @@ const FilmDetailsClient = () => {
 	const { lang, id } = useParams<{ lang: string; id: string }>()
 	const {
 		data: movie,
-		//isLoading,
+		isLoading,
 		//error,
 	} = useQuery({
 		queryKey: ["FilmById", id, lang],

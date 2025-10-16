@@ -14,7 +14,7 @@ export default function PageVideo() {
 	const { translationTexts } = useLangStore()
 	const {
 		data: videos,
-		//isLoading,
+		isLoading,
 		//error,
 	} = useQuery({
 		queryKey: ["FilmDetailsVideo", id, lang],
