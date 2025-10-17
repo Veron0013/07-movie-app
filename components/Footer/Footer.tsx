@@ -1,10 +1,24 @@
 "use client"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import css from "@/components/Footer/Footer.module.css"
 import { useLangStore } from "@/stores/langStore"
 
 export default function Footer() {
 	const { translationTexts } = useLangStore()
+	const [hydrated, setHydrated] = useState(false)
+
+	useEffect(() => {
+		setHydrated(true)
+	}, [])
+
+	if (!hydrated) {
+		return (
+			<footer className={css.footer}>
+				<p>© {new Date().getFullYear()} Movie App DB. All rights reserved.</p>
+			</footer>
+		)
+	}
+
 	return (
 		<footer className={css.footer}>
 			<div className={css.content}>

@@ -7,6 +7,7 @@
 	font-size: 14px;
 	color: #555;
 	border-top: 1px solid #ddd;
+	min-height: 86px;
 }
 
 .wrap {
