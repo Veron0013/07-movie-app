@@ -27,8 +27,15 @@ https://api.themoviedb.org/3/discover/movie
 
   GENRES
   https://api.themoviedb.org/3/genre/movie/list
+  ///////////////////////////////////////////////////////////////////////////////
 
-  v 0.08/251016
+v 0.09/251017
+
+- footer - fixed CLS optimization
+
+================================================
+
+v 0.08/251016
 
 - loading - fixed
 - LTC Image optimization
