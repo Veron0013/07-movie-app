@@ -31,7 +31,7 @@ const HomeClient = () => {
 
 	const {
 		data,
-		isLoading,
+		//isLoading,
 		//error,
 	} = useQuery({
 		queryKey: ["Tranding", lang, currentPage],

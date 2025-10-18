@@ -32,7 +32,7 @@ const SearchClient = () => {
 
 	const {
 		data,
-		isLoading,
+		//isLoading,
 		//error,
 	} = useQuery({
 		queryKey: ["Search", lang, query, currentPage],

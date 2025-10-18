@@ -1,6 +1,6 @@
 "use client"
-import { ScaleLoader } from "react-spinners"
 import css from "@/components/Loader/Loading.module.css"
+import { ScaleLoader } from "react-spinners"
 import type { CSSProperties } from "react"
 import { useLangStore } from "@/stores/langStore"
 

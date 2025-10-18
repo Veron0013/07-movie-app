@@ -1,5 +1,6 @@
 .text {
-	padding-left: 40px;
+	width: 100%;
+	min-width: 200px;
 }
 
 .wrapper {
@@ -8,6 +9,7 @@
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 9999;
+
 	display: flex;
 	flex-wrap: wrap;
 	font-size: 16px;
@@ -22,4 +24,10 @@
 	border-color: #b6d4fe;
 	align-items: center;
 	justify-content: center;
+}
+
+@media (min-width: 600px) {
+	.wrapper {
+		padding-left: 40px;
+	}
 }

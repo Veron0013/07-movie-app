@@ -29,7 +29,7 @@ const DiscoverClient = () => {
 
 	const {
 		data,
-		isLoading,
+		//isLoading,
 		//error,
 	} = useQuery({
 		queryKey: ["Discover", lang, currentPage, searchParams],
